@@ -1,38 +1,34 @@
 #include <stdio.h>
-#include <stdlib.h>
-#define CAPACITY 1000
-
-struct arrays
-{
-    int n;
-    int a[CAPACITY];
-    int* ptr;
-};
-void stru(struct arrays p);
-
+#include <math.h>
 int main()
 {
-    struct arrays a;
-    a.n = 4;
-    a.ptr = (int*)malloc(a.n * sizeof(int));
-    for (int i = 0; i < a.n; ++i)
+    int sekos_narys, sum = 0, liekana, x = 0, tarpinis; //x - sekos nariu, kuriu skaitmenu suma nelygine, skaicius
+    printf("Iveskite sveikuju skaiciu seka: \n");
+
+    while (sekos_narys != 0)   //duomenu ivedimas
     {
-        a.a[i] = i+1;
-        a.ptr[i] = i+1;
+        while ((scanf("%d", &sekos_narys))!=1)
+        {
+            printf("iveskite sveikaji skaiciu:");
+            while(getchar() != '\n');
+        }
     }
-    stru(a);
-    for(int i = 0; i<a.n; ++i)
-    {
-        printf("a%d = %d\n",i+1, a.a[i]);
-        printf("ptr%d = %d\n",i+1,  a.ptr[i]);
+     /*   tarpinis = sekos_narys;
+        while (tarpinis != 0)   //skaiciaus skaitmenu sumos skaiciavimas
+        {
+            liekana = tarpinis % 10;
+            sum = sum + liekana;
+            tarpinis = tarpinis / 10;
+        }
+        if (sum%2!=0)   //nelyginiu sumu skaiciaus radimas
+        {
+            x++;
+        }
+        sum = 0;
     }
+
+    printf("%d", x);*/
+
+
     return 0;
-}
-void stru(struct arrays p)
-{
-    for(int i = 0; i<p.n; ++i)
-    {
-        p.a[i] = p.a[i] * p.a[i];
-        p.ptr[i] = p.ptr[i] * p.ptr[i];
-    }
 }
